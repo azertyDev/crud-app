@@ -1,0 +1,137 @@
+{
+  "products": [
+    {
+      "id": "ct4w8vhab5p",
+      "title": "Toyota",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
+      "price": 750,
+      "inCart": false
+    },
+    {
+      "id": "vkllhfm09zm",
+      "title": "Ford",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
+      "price": 800,
+      "inCart": false
+    },
+    {
+      "id": "m7281hc8os",
+      "title": "Honda",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
+      "price": 850,
+      "inCart": false
+    },
+    {
+      "id": "ixp8ux8u33h",
+      "title": "Hyundai",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
+      "price": 900,
+      "inCart": false
+    },
+    {
+      "title": "Mers",
+      "description": "Новый S-Класс Mercedes-Maybach олицетворяет ультимативную роскошь, как никогда прежде.",
+      "price": 999,
+      "id": "iJR2cwY"
+    },
+    {
+      "title": "dasdasdasd",
+      "price": 123123,
+      "description": "asdas sdasasda",
+      "id": "ewYoyaK"
+    },
+    {
+      "title": "zxc zxc",
+      "description": "dad asdasdas",
+      "price": "1241",
+      "id": "1Zvkx0q"
+    },
+    {
+      "title": "nbnb",
+      "description": "qweqweqweqwe",
+      "price": "5511",
+      "id": "0InFh7b"
+    },
+    {
+      "title": "qweqwqw",
+      "description": "xczxczxczxc zx czxczxczx",
+      "price": "123",
+      "id": "V6QLZoV"
+    },
+    {
+      "title": "Redmi 5+",
+      "description": "redmi redmi qwerty",
+      "price": "8000000",
+      "id": "HrZogHJ"
+    },
+    {
+      "id": "X908Lng"
+    },
+    {
+      "title": "asd asd",
+      "description": "weqwe",
+      "price": 0,
+      "id": "j0LP2Pv"
+    },
+    {
+      "title": "asd asd",
+      "description": "weqwe",
+      "price": 0,
+      "id": "jBL3IHb"
+    },
+    {
+      "title": "asd asdsa",
+      "description": "weqwe",
+      "price": 0,
+      "id": "CzvuoAM"
+    },
+    {
+      "title": "asd asd",
+      "description": "weqwe",
+      "price": 0,
+      "id": "GiPHN1C"
+    },
+    {
+      "title": "asd asd",
+      "description": "weqwe",
+      "price": 0,
+      "id": "Vwg--d_"
+    },
+    {
+      "title": "asd asd",
+      "description": "weqwe",
+      "price": 0,
+      "id": "zKR8Owo"
+    },
+    {
+      "title": "asd asd",
+      "description": "weqwe",
+      "price": 0,
+      "id": "I0LmXKO"
+    },
+    {
+      "title": "fff qqq",
+      "description": "qweqweqweqw",
+      "price": "212",
+      "id": "K30v212"
+    },
+    {
+      "title": "qweqw",
+      "description": "cxxzc",
+      "price": 0,
+      "id": "8baTWg5"
+    },
+    {
+      "id": "CFM5prI"
+    }
+  ],
+  "cart": [
+    {
+      "id": "bix27468fjc",
+      "title": "Audi",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
+      "price": 100,
+      "quantity": 1
+    }
+  ]
+}
