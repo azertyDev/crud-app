@@ -4,7 +4,7 @@ import { IProduct } from "../models/IProduct";
 export const productApi = createApi({
   reducerPath: "productApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://5000-aquamarine-junglefowl-1aaj33gz.ws-eu18.gitpod.io",
+    baseUrl: "http://localhost:5000",
   }),
   tagTypes: ["Products"],
   endpoints: (build) => ({

@@ -1,3 +1,16 @@
+.main-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
 .pagination {
   display: flex;
   justify-content: center;

@@ -41,12 +41,6 @@
       "id": "ewYoyaK"
     },
     {
-      "title": "zxc zxc",
-      "description": "dad asdasdas",
-      "price": "1241",
-      "id": "1Zvkx0q"
-    },
-    {
       "title": "nbnb",
       "description": "qweqweqweqwe",
       "price": "5511",
@@ -63,9 +57,6 @@
       "description": "redmi redmi qwerty",
       "price": "8000000",
       "id": "HrZogHJ"
-    },
-    {
-      "id": "X908Lng"
     },
     {
       "title": "asd asd",
@@ -122,7 +113,10 @@
       "id": "8baTWg5"
     },
     {
-      "id": "CFM5prI"
+      "title": "Продукт 1",
+      "description": "Продукт описание",
+      "price": "1500",
+      "id": "UiG1NlB"
     }
   ],
   "cart": [

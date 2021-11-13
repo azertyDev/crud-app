@@ -37,7 +37,7 @@ export const MainViewContainer = () => {
   // };
 
   return (
-    <div>
+    <div className="main-view">
       {/* <div className="wrapper">
         <label htmlFor="title">
           <p>Search blog posts</p>
@@ -54,9 +54,11 @@ export const MainViewContainer = () => {
 
       {isFetching && <h1>Loading...</h1>}
       {error && <h1>Oops...Error has occured</h1>}
-      {products?.map((product) => (
-        <ProductCart key={product.id} {...product} />
-      ))}
+      <div className="cards">
+        {products?.map((product) => (
+          <ProductCart key={product.id} {...product} />
+        ))}
+      </div>
       <div className="pagination">
         <button
           onClick={() => setCurrentPage((prev) => prev - 1)}

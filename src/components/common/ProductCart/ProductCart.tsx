@@ -27,8 +27,8 @@ export const ProductCart: FC<IProduct> = (props) => {
         <p>{props.description}</p>
       </div>
       <div>
+        <button onClick={() => handleUpdate()}>Edit</button>
         <button onClick={() => handleDelete()}>Delete</button>
-        <button onClick={() => handleUpdate()}>UpdateEdit</button>
         <button>Add to cart</button>
       </div>
     </div>
