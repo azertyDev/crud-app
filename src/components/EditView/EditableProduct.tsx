@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FC, FormEvent, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { IProduct } from "src/models/IProduct";
 import {
@@ -6,7 +6,11 @@ import {
   useUpdateProductMutation,
 } from "src/services/ProductService";
 
-export const EditableProduct = () => {
+type EditableProductPropsType = {
+  onUpdate: (product: IProduct) => void;
+};
+
+export const EditableProduct: FC<EditableProductPropsType> = ({ onUpdate }) => {
   const { id } = useParams<{ id: any }>();
   const { data: product } = useGetProductByIdQuery(id);
   const [updateProduct, {}] = useUpdateProductMutation();
@@ -19,8 +23,7 @@ export const EditableProduct = () => {
     inCart: product?.inCart,
   };
 
-  const [state, setState] = useState(initialState);
-  console.log(state);
+  const [state, setState] = useState({});
 
   const handleChange = ({
     target: { value, name },
@@ -29,17 +32,26 @@ export const EditableProduct = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     try {
-      await updateProduct({id, state});
+      await updateProduct({ id, ...state });
+      setState({ ...state, [e.currentTarget.name]: e.currentTarget.value });
+      console.log(state);
     } catch (error) {
       throw new Error("Error");
     }
   };
 
+  useEffect(() => {
+    return setState(initialState);
+  }, [product]);
+
+  console.log(state);
+
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="title">
             <p>Title</p>
             <input
