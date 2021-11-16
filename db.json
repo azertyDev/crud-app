@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "title": "Suzukiiiiii",
+      "title": "Suzukiiiiiiq",
       "description": "Total splenectomy",
       "price": 32878,
       "id": "19609ddc-86cc-4d9e-8957-61843ad87cf0"
@@ -32,13 +32,6 @@
       "price": 97007,
       "inCart": true,
       "id": "2bb8f90b-74b2-48f6-9d35-7167627a72c1"
-    },
-    {
-      "title": "Chevroletqw",
-      "description": "Parasitol-spleen/marrow",
-      "price": 48471,
-      "inCart": true,
-      "id": "7d4bdfce-6f99-41f9-88d0-2de46e965faa"
     },
     {
       "id": "674862c8-9a20-4978-a2fd-a8109bdeda87",
@@ -732,46 +725,6 @@
       "description": "Int insert lead in vent",
       "price": 93579,
       "inCart": false
-    },
-    {
-      "title": "Volkswagenq",
-      "description": "Opa red-int fix rad/ulna",
-      "price": 59797,
-      "id": "d3353ff3-8ede-4f7e-b7f3-d9c1add2cd42"
-    },
-    {
-      "inCart": true,
-      "product": {
-        "title": "Volkswagenq",
-        "description": "Opa red-int fix rad/ulna",
-        "price": 59797,
-        "id": "d3353ff3-8ede-4f7e-b7f3-d9c1add2cd42"
-      },
-      "id": "yEc-HGs"
-    },
-    {
-      "inCart": true,
-      "product": {
-        "id": "674862c8-9a20-4978-a2fd-a8109bdeda87",
-        "title": "Maserati",
-        "description": "Int insert lead in vent",
-        "price": 93579
-      },
-      "id": "xjXnSSQ"
-    },
-    {
-      "inCart": true,
-      "product": {
-        "title": "Hyundaiii",
-        "description": "Urethroves junct plicat",
-        "price": 53161,
-        "id": "baa1118e-afae-4ca0-9c80-74f7fa71f765"
-      },
-      "id": "uFgTnYb"
-    },
-    {
-      "inCart": false,
-      "id": "UDS7ABR"
     }
   ]
 }

@@ -52,14 +52,11 @@ export const productApi = createApi({
     }),
     addToCart: build.mutation<IProduct, any>({
       query: (args) => {
-        const { inCart, product } = args;
+        const { inCart, ...product } = args;
         return {
           url: `/cart`,
           method: 'POST',
-          body: {
-            inCart,
-            ...product,
-          },
+          body: product,
         };
       },
     }),

@@ -2,4 +2,20 @@
   height: 50px;
   width: 100%;
   background: #f8f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header a{
+  display: flex;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.basket-icon {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }

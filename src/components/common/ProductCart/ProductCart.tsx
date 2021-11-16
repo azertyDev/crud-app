@@ -25,15 +25,19 @@ export const ProductCart: FC<IProduct> = (props) => {
     await addToCart(product);
   };
 
+  const handleShowProduct = () => {
+    alert(props.title);
+  };
+
   return (
     <div className="cart">
-      <Link to={`/product/${props.id}`}>
-        <div>
-          <p>Title: {props.title}</p>
-          <p>Price: {props.price}</p>
-          <p>Description: {props.description}</p>
-        </div>
-      </Link>
+      <div>
+        <p className="title" onClick={() => handleShowProduct()}>
+          Title: {props.title}
+        </p>
+        <p>Price: {props.price}</p>
+        <p>Description: {props.description}</p>
+      </div>
       <div>
         <button onClick={() => handleUpdate()}>Edit</button>
         <button onClick={() => handleDelete()}>Delete</button>
