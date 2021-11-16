@@ -1,6 +1,6 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { useCreateProductMutation } from "src/services/ProductService";
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { useCreateProductMutation } from '../../../services/ProductService';
 
 type initialStateType = {
   title: string;
@@ -10,8 +10,8 @@ type initialStateType = {
 
 export const CreateViewContainer = () => {
   const initialState: initialStateType = {
-    title: "",
-    description: "",
+    title: '',
+    description: '',
     price: 0,
   };
 
@@ -22,7 +22,7 @@ export const CreateViewContainer = () => {
   const [createProduct, { status }] = useCreateProductMutation();
 
   const handleInput = (
-    e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
   ) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
@@ -32,16 +32,16 @@ export const CreateViewContainer = () => {
     try {
       await createProduct(state);
 
-      history.push("/");
-      if (status === "uninitialized") {
+      history.push('/');
+      if (status === 'uninitialized') {
         setState({
-          title: "",
-          description: "",
+          title: '',
+          description: '',
           price: 0,
         });
       }
     } catch (error) {
-      throw new Error("Error");
+      throw new Error('Error');
     }
   };
 

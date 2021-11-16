@@ -1,11 +1,7 @@
-import { ChangeEvent, useState } from "react";
-import {
-  useDeleteProductMutation,
-  useFetchAllProductsQuery,
-} from "src/services/ProductService";
-import { ProductCart } from "../common/ProductCart/ProductCart";
-import { CreateViewContainer } from "../CreateView/CreateViewContainer";
-import "./MainView.css";
+import { useState } from 'react';
+import { useFetchAllProductsQuery } from '../../../services/ProductService';
+import { ProductCart } from '../../common/ProductCart/ProductCart';
+import './MainView.css';
 
 export const MainViewContainer = () => {
   const [limit, setLimit] = useState<number>(10);

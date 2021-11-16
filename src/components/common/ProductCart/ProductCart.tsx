@@ -1,13 +1,17 @@
-import React, { FC } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { IProduct } from "src/models/IProduct";
-import { useDeleteProductMutation } from "src/services/ProductService";
-import "./Cart.css";
+import React, { FC } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { IProduct } from '../../../models/IProduct';
+import {
+  useDeleteProductMutation,
+  useAddToCartMutation,
+} from '../../../services/ProductService';
+import './Cart.css';
 
 export const ProductCart: FC<IProduct> = (props) => {
   const { push } = useHistory();
 
   const [deleteProduct, {}] = useDeleteProductMutation();
+  const [addToCart, {}] = useAddToCartMutation();
 
   const handleDelete = () => {
     deleteProduct(props.id as string);
@@ -17,19 +21,25 @@ export const ProductCart: FC<IProduct> = (props) => {
     push(`/products/${props.id}`);
   };
 
+  const handleAddToCart = async (product: IProduct) => {
+    await addToCart(product);
+  };
+
   return (
     <div className="cart">
-      <div>
-        <Link to={`/product/${props.id}`}>
-          <p>{props.title}</p>
-        </Link>
-        <p>{props.price}</p>
-        <p>{props.description}</p>
-      </div>
+      <Link to={`/product/${props.id}`}>
+        <div>
+          <p>Title: {props.title}</p>
+          <p>Price: {props.price}</p>
+          <p>Description: {props.description}</p>
+        </div>
+      </Link>
       <div>
         <button onClick={() => handleUpdate()}>Edit</button>
         <button onClick={() => handleDelete()}>Delete</button>
-        <button>Add to cart</button>
+        <button onClick={() => handleAddToCart(props)} disabled={props.inCart}>
+          Add to cart
+        </button>
       </div>
     </div>
   );

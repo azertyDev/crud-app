@@ -1,33 +1,39 @@
-import { FC, FormEvent, useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { IProduct } from "src/models/IProduct";
-import {
-  useGetProductByIdQuery,
-  useUpdateProductMutation,
-} from "src/services/ProductService";
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { useUpdateProductMutation } from '../../../services/ProductService';
+
+interface IProduct {
+  id?: string;
+  title?: string;
+  description?: string;
+  price?: number;
+  inCart?: boolean;
+}
 
 type EditableProductPropsType = {
-  onUpdate: (product: IProduct) => void;
+  id: string;
+  product: IProduct | undefined;
 };
 
-export const EditableProduct: FC<EditableProductPropsType> = ({ onUpdate }) => {
-  const { id } = useParams<{ id: any }>();
-  const { data: product } = useGetProductByIdQuery(id);
+export const EditableProduct: FC<EditableProductPropsType> = ({
+  id,
+  product,
+}) => {
+  const { push } = useHistory();
   const [updateProduct, {}] = useUpdateProductMutation();
 
   const initialState: IProduct = {
     title: product?.title,
     description: product?.description,
     price: product?.price,
-    id: product?.id,
     inCart: product?.inCart,
   };
 
-  const [state, setState] = useState({});
+  const [state, setState] = useState(initialState);
 
   const handleChange = ({
     target: { value, name },
-  }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setState({ ...state, [name]: value });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -35,18 +41,16 @@ export const EditableProduct: FC<EditableProductPropsType> = ({ onUpdate }) => {
 
     try {
       await updateProduct({ id, ...state });
-      setState({ ...state, [e.currentTarget.name]: e.currentTarget.value });
-      console.log(state);
+      push('/');
     } catch (error) {
-      throw new Error("Error");
+      console.log(error);
+      throw new Error('Error');
     }
   };
 
   useEffect(() => {
     return setState(initialState);
   }, [product]);
-
-  console.log(state);
 
   return (
     <div>
@@ -56,7 +60,7 @@ export const EditableProduct: FC<EditableProductPropsType> = ({ onUpdate }) => {
             <p>Title</p>
             <input
               type="text"
-              value={product?.title}
+              value={state?.title}
               id="title"
               name="title"
               onChange={(e) => handleChange(e)}
@@ -66,7 +70,7 @@ export const EditableProduct: FC<EditableProductPropsType> = ({ onUpdate }) => {
             <p>Price</p>
             <input
               type="number"
-              value={product?.price}
+              value={state?.price}
               id="price"
               name="price"
               onChange={handleChange}
@@ -75,7 +79,7 @@ export const EditableProduct: FC<EditableProductPropsType> = ({ onUpdate }) => {
           <label htmlFor="description">
             <p>Description</p>
             <textarea
-              value={product?.description}
+              value={state?.description}
               id="description"
               name="description"
               onChange={handleChange}

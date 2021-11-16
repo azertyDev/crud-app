@@ -1,12 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IProduct } from "../models/IProduct";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IProduct } from '../models/IProduct';
 
 export const productApi = createApi({
-  reducerPath: "productApi",
+  reducerPath: 'productApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000",
+    baseUrl: 'http://localhost:5000',
   }),
-  tagTypes: ["Products"],
+  tagTypes: ['Products'],
   endpoints: (build) => ({
     fetchAllProducts: build.query<
       IProduct[],
@@ -15,40 +15,53 @@ export const productApi = createApi({
       query: (arg) => {
         const { currentPage: _page, limit: _limit, searchResult } = arg;
         return {
-          url: "/products",
+          url: '/products',
           params: { _page, _limit, title: searchResult },
         };
       },
-      providesTags: ["Products"],
+      providesTags: ['Products'],
     }),
     getProductById: build.query<IProduct, string>({
       query: (id) => `/products/${id}`,
     }),
     createProduct: build.mutation({
       query: (product) => ({
-        url: "/products",
-        method: "POST",
+        url: '/products',
+        method: 'POST',
         body: product,
       }),
-      invalidatesTags: ["Products"],
+      invalidatesTags: ['Products'],
     }),
     deleteProduct: build.mutation<IProduct, string>({
       query: (id) => ({
         url: `/products/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
       }),
-      invalidatesTags: ["Products"],
+      invalidatesTags: ['Products'],
     }),
     updateProduct: build.mutation<IProduct, any>({
       query: (args) => {
         const { id, ...product } = args;
         return {
           url: `/products/${id}`,
-          method: "PUT",
+          method: 'PUT',
           body: product,
         };
       },
-      invalidatesTags: ["Products"],
+      invalidatesTags: ['Products'],
+    }),
+    addToCart: build.mutation<IProduct, any>({
+      query: (args) => {
+        const { inCart, product } = args;
+        return {
+          url: `/cart`,
+          method: 'POST',
+          body: {
+            inCart,
+            ...product,
+          },
+        };
+      },
     }),
   }),
 });
@@ -59,4 +72,5 @@ export const {
   useCreateProductMutation,
   useDeleteProductMutation,
   useUpdateProductMutation,
+  useAddToCartMutation,
 } = productApi;
