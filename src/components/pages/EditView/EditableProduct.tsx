@@ -1,14 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import { IProduct } from 'src/models/IProduct';
 import { useUpdateProductMutation } from '../../../services/ProductService';
-
-interface IProduct {
-  id?: string;
-  title?: string;
-  description?: string;
-  price?: number;
-  inCart?: boolean;
-}
 
 type EditableProductPropsType = {
   id: string;

@@ -7,26 +7,6 @@
       "id": "19609ddc-86cc-4d9e-8957-61843ad87cf0"
     },
     {
-      "title": "Chevrolett",
-      "description": "Remove both fallop tubes",
-      "price": 28470,
-      "id": "0d29520c-c7eb-421d-bfc3-c2de9b8caf25"
-    },
-    {
-      "title": "Hyundaiii",
-      "description": "Urethroves junct plicat",
-      "price": 53161,
-      "inCart": false,
-      "id": "baa1118e-afae-4ca0-9c80-74f7fa71f765"
-    },
-    {
-      "id": "123aa543-3329-4a23-87d9-294578e9eabc",
-      "title": "GMC",
-      "description": "Cystogram NEC",
-      "price": 48835,
-      "inCart": false
-    },
-    {
       "title": "AcuraaaAaa",
       "description": "Muscle trnsfr/transplant",
       "price": 97007,
@@ -688,43 +668,13 @@
       "description": "Product description",
       "price": "1000",
       "id": "GG0Lj_D"
+    },
+    {
+      "title": "qwertyy",
+      "description": "tet",
+      "price": "1235",
+      "id": "jrB_zm6"
     }
   ],
-  "cart": [
-    {
-      "id": "bix27468fjc",
-      "title": "Audi",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
-      "price": 100,
-      "quantity": 1
-    },
-    {
-      "title": "Suzukiiiiii",
-      "description": "Total splenectomy",
-      "price": 32878,
-      "id": "19609ddc-86cc-4d9e-8957-61843ad87cf0",
-      "quantity": 2
-    },
-    {
-      "title": "AcuraaaAaa",
-      "description": "Muscle trnsfr/transplant",
-      "price": 97007,
-      "inCart": true,
-      "id": "2bb8f90b-74b2-48f6-9d35-7167627a72c1"
-    },
-    {
-      "title": "Chevroletqw",
-      "description": "Parasitol-spleen/marrow",
-      "price": 48471,
-      "inCart": true,
-      "id": "7d4bdfce-6f99-41f9-88d0-2de46e965faa"
-    },
-    {
-      "id": "674862c8-9a20-4978-a2fd-a8109bdeda87",
-      "title": "Maserati",
-      "description": "Int insert lead in vent",
-      "price": 93579,
-      "inCart": false
-    }
-  ]
+  "cart": []
 }

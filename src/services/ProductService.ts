@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IProduct } from '../models/IProduct';
+import { ICart, IProduct } from '../models/IProduct';
 
 export const productApi = createApi({
   reducerPath: 'productApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:5000',
   }),
-  tagTypes: ['Products'],
+  tagTypes: ['Products', 'Cart'],
   endpoints: (build) => ({
     fetchAllProducts: build.query<
       IProduct[],
@@ -50,6 +50,10 @@ export const productApi = createApi({
       },
       invalidatesTags: ['Products'],
     }),
+    fetchCart: build.query<ICart[], void>({
+      query: () => '/cart',
+      providesTags: ['Cart'],
+    }),
     addToCart: build.mutation<IProduct, any>({
       query: (args) => {
         const { inCart, ...product } = args;
@@ -60,6 +64,15 @@ export const productApi = createApi({
         };
       },
     }),
+    deleteFromCart: build.mutation<void, string>({
+      query: (args) => {
+        return {
+          url: `/cart/${args}`,
+          method: 'DELETE',
+        };
+      },
+      invalidatesTags: ['Cart'],
+    }),
   }),
 });
 
@@ -69,5 +82,7 @@ export const {
   useCreateProductMutation,
   useDeleteProductMutation,
   useUpdateProductMutation,
+  useFetchCartQuery,
   useAddToCartMutation,
+  useDeleteFromCartMutation,
 } = productApi;

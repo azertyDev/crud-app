@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICart } from 'src/models/IProduct';
-import { fetchCart, addToCart } from './ActionCreators';
+import { fetchCart } from './ActionCreators';
 
 interface CartState {
     data: ICart[];

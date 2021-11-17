@@ -1,17 +1,38 @@
 import { useState } from 'react';
-import { useFetchAllProductsQuery } from '../../../services/ProductService';
+import { useHistory } from 'react-router';
+import { IProduct } from 'src/models/IProduct';
+import {
+  useAddToCartMutation,
+  useDeleteProductMutation,
+  useFetchAllProductsQuery,
+} from '../../../services/ProductService';
 import { ProductCart } from '../../common/ProductCart/ProductCart';
 import './MainView.css';
 
 export const MainViewContainer = () => {
   const [limit, setLimit] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const { push } = useHistory();
 
   const {
     data: products,
     isFetching,
     error,
   } = useFetchAllProductsQuery({ limit, currentPage });
+  const [addToCart, {}] = useAddToCartMutation();
+  const [deleteProduct, {}] = useDeleteProductMutation();
+
+  const handleDelete = (id: string) => {
+    deleteProduct(id);
+  };
+
+  const handleUpdate = (id: string) => {
+    push(`/products/${id}`);
+  };
+
+  const handleAddToCart = async (product: IProduct) => {
+    await addToCart(product);
+  };
 
   // const [searchTerm, setSearchTerm] = useState<string>("");
   // const [searchResult, setSearchResult] = useState<string>("");
@@ -52,7 +73,13 @@ export const MainViewContainer = () => {
       {error && <h1>Oops...Error has occured</h1>}
       <div className="cards">
         {products?.map((product) => (
-          <ProductCart key={product.id} {...product} />
+          <ProductCart
+            key={product.id}
+            product={product}
+            handleAddToCart={handleAddToCart}
+            handleDelete={handleDelete}
+            handleUpdate={handleUpdate}
+          />
         ))}
       </div>
       <div className="pagination">
